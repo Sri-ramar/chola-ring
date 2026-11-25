@@ -1,0 +1,76 @@
+# Rhiona Autonomous Architecture & Agentic Flow
+
+Rhiona is an autonomous AI desktop companion pairing a React cyberpunk reactor HUD with an intelligent Python agentic backend.
+
+## 1. System Architecture
+
+```text
+User
+ ├─ Microphone / Voice Input
+ ├─ Terminal / CLI Commands
+ ├─ Reactive Reactor HUD controls
+ └─ Tactical Widget Interactions
+          │
+          ▼
+┌───────────────────────────────────────────┐
+│ Rhiona Server & Presentation Bridge       │
+│ (frontend/server.ts)                      │
+│ - Express REST API                        │
+│ - WebSocket Gateway (/ws/live)            │
+│ - Gemini Live Bi-directional Audio Proxy  │
+│ - Vite SSR & Static Asset Pipeline        │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│ Rhiona Agent Engine                       │
+│ (backend/agent_engine.py)                 │
+└──────┬──────────┬──────────┬──────────┬───┘
+       │          │          │          │
+       ▼          ▼          ▼          ▼
+ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
+ │ Agent    │ │ Tactical │ │ Long-Term│ │ Vision & │
+ │ Pipeline │ │ Actions  │ │ Memory   │ │ Media    │
+ └──────────┘ └──────────┘ └──────────┘ └──────────┘
+```
+
+## 2. Core Subsystems
+
+### A. Autonomous Agent Pipeline (`backend/agent/`)
+- `planner.py`: Decomposes complex user goals into targeted, sequential step execution plans.
+- `executor.py`: Evaluates and executes plans with automatic error detection, retry mechanisms, and recovery options.
+- `task_queue.py`: Thread-safe priority task queue for background task execution.
+- `local_model.py`: Interface to NVIDIA Llama-3.2 vision/reasoning model for local planning and synthesis.
+- `error_handler.py`: Analyzes execution exceptions and generates corrective actions dynamically.
+
+### B. Action Modules (`backend/actions/`)
+- `open_app.py`: Launches desktop applications cross-platform.
+- `web_search.py`: Live web intelligence and search query extraction.
+- `cmd_control.py`: Safe host command execution and terminal dispatch.
+- `computer_settings.py` & `computer_control.py`: Controls volume, brightness, window state, and mouse/keyboard events.
+- `file_controller.py` & `file_processor.py`: Inspects, writes, creates, and organizes files.
+- `browser_control.py`: Playwright and browser-based web navigation.
+- `screen_processor.py`: Visual context extraction and screen analysis.
+- `send_message.py`: Dispatches messages via WhatsApp, Telegram, and messaging platforms.
+- `reminder.py`: Asynchronous scheduled alerts.
+- `code_helper.py` & `dev_agent.py`: Code analysis, refactoring, and execution support.
+
+### C. Persistent Memory Subsystem (`backend/memory/`)
+- `memory_manager.py`: Manages long-term structured memory (`long_term.json`) across categories:
+  - Identity
+  - Preferences
+  - Projects
+  - Relationships & Friends
+  - Notes & Custom Facts
+- Auto-extracts facts from user dialogue and preserves them across sessions.
+
+### D. Multimodal Vision (`backend/vision.py`)
+- Screen capture via `scrot` / `grim` / `import`.
+- Visual object detection and multimodal context description.
+
+### E. Standalone Tools (`tools/`)
+- `media_downloader.py`: MP3/MP4 YouTube downloader.
+- `calculator.py`: Mathematical calculator tool.
+- `image_enhancer.py`: Image upscaling and enhancement.
+- `video_editor.py`: Video editing utility.
+- `stt_diagnostic.py`: Speech recognition calibration diagnostic.

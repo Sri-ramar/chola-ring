@@ -1,0 +1,33 @@
+[project]
+name = "aria-liquid-voice"
+version = "0.1.0"
+description = "Small local UI for LiquidAI LFM2.5 Audio speech generation."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "accelerate>=1.14.0",
+  "bitsandbytes>=0.50.1",
+  "fastapi>=0.115.0",
+  "huggingface-hub>=0.25.0",
+  "liquid-audio>=1.2.0",
+  "numpy>=1.26.0",
+  "psutil>=6.1.0",
+  "python-multipart>=0.0.9",
+  "requests>=2.32.0",
+  "soundfile>=0.12.1",
+  "torch>=2.6.0",
+  "torchaudio>=2.6.0",
+  "uvicorn>=0.30.0",
+  "websockets>=13.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchaudio = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

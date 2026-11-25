@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Chola Core
+GenericName=Chola Core UI
+Comment=Chola Core UI — Ponnian Metallurgy native desktop shell
+Exec=/home/sriramar/Documents/Projects/ai-companions/chola-ring/backend/.venv/bin/python3 /home/sriramar/Documents/Projects/ai-companions/chola-ring/desktop/aether_app.py
+Path=/home/sriramar/Documents/Projects/ai-companions/chola-ring
+Icon=/home/sriramar/Documents/Projects/ai-companions/chola-ring/Icon.png
+Terminal=false
+Categories=Utility;Science;Chat;Network;
+StartupNotify=true
+StartupWMClass=Chola Core UI
+Keywords=AI;Assistant;Chola;Voice;Companion;HUD;Reactor;

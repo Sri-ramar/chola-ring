@@ -1,0 +1,6 @@
+{
+  "name": "Aether Core Interface",
+  "description": "Futuristic skeuomorphic reactor core dashboard with Google Live speech-to-speech interaction, dynamic alternating listening/speaking voice auras, selectable metallic chassis (Gold, Black, Silver), and live telemetry widgets.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

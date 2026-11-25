@@ -1,0 +1,42 @@
+# User-requested exception
+wallpaper/
+
+# Dependencies & virtual environments
+node_modules/
+frontend/node_modules/
+backend/.venv/
+.venv/
+
+# Build outputs
+frontend/dist/
+dist/
+*.tsbuildinfo
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Secrets & API keys
+.env
+.env.local
+.env.*.local
+backend/.env
+backend/config/api_keys.json
+
+# Personal data & local state
+backend/contacts.csv
+backend/contacts_clean.json
+backend/memory/long_term.json
+backend/memory/reminders.json
+backend/user_voiceprint.npy
+backend/user_voiceprint_sample.wav
+backend/models/
+backend/outputs/
+backend/uploads/
+
+# Large binaries / tool caches
+backend/obscura/obscura
+backend/obscura/target/
+.token-optimizer/
+*.log
